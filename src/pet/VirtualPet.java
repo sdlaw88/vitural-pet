@@ -9,8 +9,12 @@ public class VirtualPet {
 		private String health;
 		private int l;
 		private String happiness;
-		private int e;
+		public int e;
 		private String hunger;
+		 int level=100;
+		 
+		
+		
 		//matching construtor (builds the object)
 	public VirtualPet(String animal, String health, int l, String happiness, int e) {
 		this.animal=animal;
@@ -47,12 +51,13 @@ public class VirtualPet {
 		return e;
 	}
 
-	 
-
-	
-}
+	 public int sete(int e) {
+		 this.e=e;
+		 
+		 return e;
+	 }
 				
-		
+}
 		
 		
 		

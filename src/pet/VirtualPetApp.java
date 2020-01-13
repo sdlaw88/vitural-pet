@@ -16,7 +16,8 @@ public class VirtualPetApp {
 		int water =2;
 		int walk = 3;
 		int play = 4;
-		int discipline = 5; 
+		int discipline = 5;
+		int gameOver=6;
 		//introducing the user to the game
 		System.out.println("Welcome to animal simulator");
 		System.out.println("What is your name friend?");
@@ -45,34 +46,107 @@ public class VirtualPetApp {
 			System.out.println("choose"+" "+ 3 +" "+"to walk your pet");
 			System.out.println("choose"+" "+ 4 +" "+ "to play with your pet");
 			System.out.println("choose"+" "+ 5 +" "+"to discipline your pet");
+			System.out.println("choose"+" "+ 6 +" "+ "to end the game");
 			}
 			yourAnswer=input.nextInt();
 			/**inputing an object to link VirtualPet to the VirtualPetApp
 			to call the class I had to create a new object name "animal" & link strings and int
 			to VirtualPet from line below next steps was to add getter method...getterdone!!!*/
-			VirtualPet friend = new VirtualPet(pets[select],"Health:", 100,"Happiness:",100);
+			VirtualPet friend = new VirtualPet(pets[select],"Health:",100,"Happiness:",100);
 			System.out.println("Your"+" "+ friend.getanimal());
 			System.out.println("Your"+" "+ friend.gethealth());
 			System.out.println( friend.getl());
 			System.out.println("Your"+" "+ friend.gethappiness());
 			System.out.println( friend.gete());
-	
-			while (yourAnswer==1) {
 			
-				if(friend.getl()>80) {
+			//Call Tick class to link App to Time 
+			
+			do {
+				if  (yourAnswer==1) {
+					alive+=15;
+					
+				if(alive<80) {
 				System.out.println("your pet is in need of food and drink");
 				}
-				if(friend.gete()<70) {
+				if(alive<70) {
 					System.out.println("your pet is unhappy");
 				}
 				else {
-					System.out.println("your pet is not hungry or thirsty");
+					System.out.println("What do you want to do next with your pet"+" "+userName);
 				}
 			yourAnswer=input.nextInt();
 			}
 			
-			}
+				if  (yourAnswer==2) {
+					alive +=10;
+					
+					System.out.println("your pet's level is"+" "+ alive);
+					if(alive<80) {	
+						System.out.println(animalName+" "+"is still thirsty");				}
+					if(alive<70) {
+						System.out.println("your pet is unhappy");
+					}
+					else {
+						System.out.println("your pet is not hungry or thirsty");
+					}
+				yourAnswer=input.nextInt();
+				}
+	
+	
+				if  (yourAnswer==3) {
+					
+					
+					System.out.println("exercise is important for"+ " "+animalName+" "+"happiness increased to"+" "+(alive+=10));
+				
+					if(alive<60) {
+						System.out.println("your pet is unhappy");
+					}
+					if(alive<80) {
+						System.out.println("your pet is hungry or thirsty");
+					}
+				yourAnswer=input.nextInt();
+				}
+					if  (yourAnswer==4) {
+					
+					
+					System.out.println("Playing bulids an important bond between you and"+ " "+animalName+" "+" enegry level is"+ alive);
+										alive-=20;
+					if(alive<60) {
+						System.out.println("your pet is unhappy");
+					}
+					if(alive<70) {
+						System.out.println("maybe you should feed"+animalName);
+					}
+					else {
+						System.out.println("your pet would like to exercise");
+					}
+				
+						yourAnswer=input.nextInt();
+	}    
+					
+					if  (yourAnswer==5) {
+						
+						
+						System.out.println(animalName+ "doesn't like to be punished your happiness is"+ alive);
+											alive-=50;
+						if(alive<60) {
+							System.out.println("your pet is unhappy");
+						}
+						else {
+							System.out.println("your pet is sad");
+						}
+					
+						yourAnswer=input.nextInt();
+				if(alive<30) {
+					System.out.println("unfornately you killed your pet");
+					break;
+				}
+		}
+			}	while (yourAnswer!=6||alive<=30); 
+				System.out.println("Game over");
+			
+			
+			
 }
-
-		
+}
 
